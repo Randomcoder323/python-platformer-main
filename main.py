@@ -16,15 +16,20 @@ PLAYER_WIDTH = 40
 PLAYER_HEIGHT = 60
 
 
-def draw():
+def draw(player):
     WIN.blit(BG, (0, 0))
+
+    pygame.draw.rect(WIN, "red", player)
+
     pygame.display.update()
+
+
 
 
 
 def main():
     run = True
-    player = pygame.Rect(200, HEIGHT- PLAYER_HEIGHT)
+    player = pygame.Rect(200, HEIGHT- PLAYER_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT)
 
 
     while run:
@@ -32,7 +37,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 break
-        draw()
+        draw(player)
 
     pygame.quit()
     
